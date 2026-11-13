@@ -10,12 +10,12 @@ func TestGetAPIKey_Success(t *testing.T) {
 	headers.Set("Authorization", "ApiKey my-secret-key")
 
 	got, err := GetAPIKey(headers)
-	if err = nil {
+	if err != nil {
 		t.Fatalf("expected no error, got %v", err)
 	}
 
 	want := "my-secret-key"
-	if got = want {
+	if got != want {
 		t.Errorf("expected key %q, got %q", want, got)
 	}
 }
